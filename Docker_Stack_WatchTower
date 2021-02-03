@@ -20,15 +20,12 @@
 # if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
 #
-# This improved version starts from the idea of Alexander Bilz https://gist.github.com/lxndrblz
-# Original source code at https://gist.github.com/lxndrblz/27e6ca08363bbc8be994a2f7b1a9d523
-#
 #
 # -------------------------------------------------------
 ---
 version: '2.1'
 services:
-    watchtower :
+    watchtower:
         image: containrrr/watchtower:latest
         container_name: watchtower
         volumes:
@@ -39,12 +36,12 @@ services:
             - WATCHTOWER_SCHEDULE=0 15 13 * * THU
             - WATCHTOWER_CLEANUP=true
             - WATCHTOWER_NOTIFICATIONS=email
-            - WATCHTOWER_NOTIFICATION_EMAIL_FROM=alessior@live.com
-            - WATCHTOWER_NOTIFICATION_EMAIL_TO=alessior@microsoft.com
-            - WATCHTOWER_NOTIFICATION_EMAIL_SERVER=smtp-relay.sendinblue.com
-            - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD=YOUR_PASSWORD
+            - WATCHTOWER_NOTIFICATION_EMAIL_FROM=YOUR_FROM_EMAIL_ADDRESS
+            - WATCHTOWER_NOTIFICATION_EMAIL_TO=YOUR_TO_EMAIL_ADDRESS
             - WATCHTOWER_NOTIFICATION_EMAIL_SUBJECTTAG=Pi Server Container Updates
-            - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER=alessior@live.com
+            - WATCHTOWER_NOTIFICATION_EMAIL_SERVER=YOUR_SMTP_RELAY_ADDRESS
+            - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER=YOUR_SMTP_RELAY_USER_ACCOUNT
+            - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD=YOUR_SMTP_RELAY_PASSWORD       
             - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PORT=587
             - WATCHTOWER_NOTIFICATION_EMAIL_DELAY=2
         restart: unless-stopped
