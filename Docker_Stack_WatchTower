@@ -5,6 +5,7 @@
 #
 # Purpose: Create a Docker Stack for running WatchTower
 # Author: Alessio Rossini <alessior@live.com>
+# Descriptipon
 # 
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -33,7 +34,7 @@ services:
         environment:
             - TZ=Europe/Rome
             - WATCHTOWER_MONITOR_ONLY=true
-            - WATCHTOWER_SCHEDULE=0 15 13 * * THU
+            - WATCHTOWER_SCHEDULE=0 0 */1 * * *
             - WATCHTOWER_CLEANUP=true
             - WATCHTOWER_NOTIFICATIONS=email
             - WATCHTOWER_NOTIFICATION_EMAIL_FROM=YOUR_FROM_EMAIL_ADDRESS
